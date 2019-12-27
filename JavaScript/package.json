@@ -1,0 +1,15 @@
+{
+  "name": "codewars_JavaScript",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha ./**/spec.js"
+  },
+  "repository": "https://github.com/nouvelle/codewars.git",
+  "author": "nouvelle",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "mocha": "^6.2.2"
+  }
+}
