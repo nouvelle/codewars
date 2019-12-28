@@ -8,7 +8,12 @@
 // rgb(148, 0, 211) // returns 9400D3
 
 const rgb = (r, g, b) => {
-  return "000000";
+  function tenTo16(num) {
+    if (num <= 0) return "00";
+    if (num >= 255) return "FF";
+    return `0${num.toString(16).toUpperCase()}`.slice(-2);
+  }
+  return tenTo16(r) + tenTo16(g) + tenTo16(b);
 };
 
 module.exports = { rgb };
