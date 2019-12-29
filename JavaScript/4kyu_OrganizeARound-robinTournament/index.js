@@ -20,6 +20,66 @@
 
 // Hint: you may use the predefined function "printTable" to debug your results.
 
-const buildMatchesTable = numberOfTeams => {};
+const buildMatchesTable = numberOfTeams => {
+  let result = [];
+  let table = makeDefaultTable(numberOfTeams);
+
+  while (true) {
+    result.push(makeTable(table));
+    if (checktable(table)) break;
+  }
+
+  function checktable(checktable) {
+    let rtn = true;
+    for (arr of checktable) {
+      for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === "F") rtn = false;
+        if (!rtn) break;
+      }
+    }
+    return rtn;
+  }
+
+  function makeTable(checktable) {
+    let teams = [];
+    let selectedTeam = [];
+    for (let i = 0; i < numberOfTeams; i++) {
+      for (let j = 0; j < numberOfTeams; j++) {
+        let tmp = [];
+        if (
+          !selectedTeam.includes(i) &&
+          !selectedTeam.includes(j) &&
+          checktable[i][j] === "F"
+        ) {
+          tmp = [i + 1, j + 1];
+          teams.push(tmp);
+          selectedTeam.push(i);
+          selectedTeam.push(j);
+          table[i][j] = "T";
+          table[j][i] = "T";
+        }
+      }
+    }
+    // console.log("selectedTeam", selectedTeam);
+    // console.log("teams", teams);
+    return teams;
+  }
+
+  function makeDefaultTable(num) {
+    const table = [];
+    for (let i = 0; i < num; i++) {
+      const tmp = [];
+      for (let j = 0; j < num; j++) {
+        i === j ? (tmp[j] = "T") : (tmp[j] = "F");
+      }
+      table[i] = tmp;
+    }
+    return table;
+  }
+
+  console.log("---");
+  console.log("result", result);
+  return result;
+};
 
 module.exports = { buildMatchesTable };
