@@ -83,3 +83,18 @@ const buildMatchesTable = numberOfTeams => {
 };
 
 module.exports = { buildMatchesTable };
+
+// let matrix = [];
+// for (let i = 1; i < numberOfTeams; i++) {
+//   let matches = [[1, i + 1]];
+//   for (let j = 1; j < numberOfTeams / 2; j++) {
+//     matches.push([
+//       2 + ((i + j - 1) % (numberOfTeams - 1)),
+//       2 + ((numberOfTeams - 2 + i - j) % (numberOfTeams - 1))
+//     ]);
+//   }
+//   matrix.push(matches);
+// }
+// console.log(matrix);
+// return matrix;
+// };
