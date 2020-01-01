@@ -9,15 +9,14 @@ describe.only("7kyu: Alphabetical Addition", () => {
     [["c"], "c"],
     [["z", "a"], "a"],
     [["y", "c", "b"], "d"],
-    [[], "z"]
+    [[], "z"],
+    [["f", "d", "j", "y", "a", "f", "h", "c", "o"], "z"]
   ];
 
-  // it("test 1", () => {
   tests.forEach(test => {
     const str = test[0].map(x => `"${x}"`).join(", ");
     it(`addLetters(${str})`, () => {
       assert.strictEqual(addLetters(...test[0]), test[1]);
     });
   });
-  // });
 });

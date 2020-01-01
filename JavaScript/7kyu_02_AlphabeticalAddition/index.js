@@ -20,8 +20,8 @@ const addLetters = (...letters) => {
   let total = letters.reduce((sum, val) => {
     return (sum += alphabet.indexOf(val) + 1);
   }, 0);
+  if (total % 26 === 0 || total < 1) return "z";
   if (total > 26) return alphabet.charAt((total % 26) - 1);
-  if (total < 1) return "z";
   return alphabet.charAt(total - 1);
 };
 
